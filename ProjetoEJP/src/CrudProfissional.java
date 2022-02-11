@@ -1,40 +1,40 @@
 import java.util.*;
 
-public class CrudMotorista {
+public class CrudProfissional {
 
-    public CrudMotorista() {
-        this.motoristas = new ArrayList<Motorista>();
+    public CrudProfissional() {
+        this.profissionais = new ArrayList<Profissional>();
     }
 
     Scanner sc = new Scanner(System.in);
     String cpfConsulta;
     int option;
 
-    ArrayList<Motorista> motoristas;
+    ArrayList<Profissional> profissionais;
 
-    public void cadastrarMotorista() {
-        Motorista motorista = new Motorista();
-        System.out.println("Nome: ");
-        motorista.setNome(sc.nextLine());
+    public void cadastrarProfissional() {
+        Profissional c = new Profissional();
+        /*System.out.println("Nome: ");
+        c.setNome(sc.nextLine());
         System.out.println("CPF: ");
-        motorista.setCpf(sc.nextLine());
+        c.setCpf(sc.nextLine());
         System.out.println("Telefone para contato: ");
-        motorista.setTelefone(sc.nextLine());
+        c.setTelefone(sc.nextLine());
         System.out.println("Data de nascimento: ");
-        motorista.setDataNascimento(sc.nextLine());
+        c.setDataNascimento(sc.nextLine());
         System.out.println("Carro: ");
-        motorista.setCarro(sc.nextLine());
+        c.setCarro(sc.nextLine());
         System.out.println("Cnh: ");
-        motorista.setCnh(sc.nextLine());
-        motoristas.add(motorista);
+        c.setCnh(sc.nextLine());*/
+        profissionais.add(c);
     }
 
-    public void alterarMotorista() {
+    public void alterarProfissional() {
         System.out.println("Cpf para consultar: ");
         cpfConsulta = sc.nextLine();
-        for (Motorista m : motoristas) {
+        for (Profissional m : profissionais) {
             if (m.getCpf().equals(cpfConsulta)) {
-                int index = motoristas.indexOf(m);
+                int index = profissionais.indexOf(m);
                 do {
                     System.out.println("1-Nome \n2-Telefone \n3-Data de nascimento \n4-Carro: ");
                     option = sc.nextInt();
@@ -56,15 +56,15 @@ public class CrudMotorista {
                             break;
                     }
                 } while (option != 0);
-                motoristas.set(index, m);
+                profissionais.set(index, m);
             }
         }
     }
 
-    public void consultarMotorista() {
+    public void consultarProfissional() {
         System.out.println("Cpf para consultar: ");
         cpfConsulta = sc.nextLine();
-        for (Motorista m : motoristas) {
+        for (Profissional m : profissionais) {
             if (m.getCpf().equals(cpfConsulta)) {
                 System.out.println("Nome: " + m.getNome());
                 System.out.println("Cpf: " + m.getCpf());
@@ -75,10 +75,10 @@ public class CrudMotorista {
         }
     }
 
-    public void excluirMotorista() {
+    public void excluirProfissional() {
         System.out.println("Cpf para consultar: ");
         cpfConsulta = sc.nextLine();
-        for (Motorista m : motoristas) {
+        for (Profissional m : profissionais) {
             if (m.getCpf().equals(cpfConsulta)) {
                 System.out.println("Nome: " + m.getNome());
                 System.out.println("Cpf: " + m.getCpf());
@@ -88,7 +88,7 @@ public class CrudMotorista {
                 System.out.println("São realmente seus dados?(0)-Não (1)-Sim ");
                 option = sc.nextInt();
                 if (option == 1)
-                    motoristas.remove(motoristas.indexOf(m));
+                    profissionais.remove(profissionais.indexOf(m));
             }
         }
     }

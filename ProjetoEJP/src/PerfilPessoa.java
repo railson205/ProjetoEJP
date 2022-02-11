@@ -1,15 +1,15 @@
 import java.util.*;
 
-public class PerfilPassageiro {
+public class PerfilPessoa {
 
 
     int option;
     Scanner sc = new Scanner(System.in);
-    CrudPassageiro crPassageiro = new CrudPassageiro();
+    CrudPessoa crPessoa = new CrudPessoa();
 
     public void menu() {
         do {
-            System.out.println("##--Perfil do passageiro--##");
+            System.out.println("##--Perfil do cliente--##");
             System.out.println("| 1 - Cadastrar |");
             System.out.println("| 2 - Alterar |");
             System.out.println("| 3 - Consultar |");
@@ -19,16 +19,16 @@ public class PerfilPassageiro {
             option = sc.nextInt();
             switch (option) {
                 case 1:
-                    crPassageiro.cadastrarPassageiro();
+                    crPessoa.cadastrarCliente();
                     break;
                 case 2:
-                    crPassageiro.alterarPassageiro();
+                    crPessoa.alterarPessoa();
                     break;
                 case 3:
-                    crPassageiro.consultarPassageiro();
+                    crPessoa.consultarPessoa();
                     break;
                 case 4:
-                    crPassageiro.excluirPassageiro();
+                    crPessoa.excluirPessoa();
                     break;
                 case 5:
                     break;

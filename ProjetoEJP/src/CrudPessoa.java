@@ -1,18 +1,17 @@
 import java.util.*;
 
-public class CrudPassageiro {
+public class CrudPessoa {
 
-    public CrudPassageiro(){
-        this.passageiros = new ArrayList<Pessoa>();
+    public CrudPessoa(){
+        this.pessoas = new ArrayList<Pessoa>();
     }
     
-    static ArrayList<Pessoa> passageiros;
-    ArrayList<Pessoa> passAux = new ArrayList<Pessoa>();
+    static ArrayList<Pessoa> pessoas;
     Scanner sc = new Scanner(System.in);
     String cpfConsulta;
     int option;
 
-	public ArrayList<Pessoa> cadastrarPassageiro() {
+	public void cadastrarCliente() {
         Pessoa pessoa = new Pessoa();
         System.out.println("Nome: ");
         pessoa.setNome(sc.nextLine());
@@ -22,17 +21,15 @@ public class CrudPassageiro {
         pessoa.setTelefone(sc.nextLine());
         System.out.println("Data de nascimento: ");
         pessoa.setDataNascimento(sc.nextLine());
-        passAux.add(pessoa);
-        passageiros = passAux;
-        return passageiros;
+        pessoas.add(pessoa);
     }
 
-    public void alterarPassageiro() {
+    public void alterarPessoa() {
         System.out.println("Cpf para consultar: ");
         cpfConsulta = sc.nextLine();
-        for (Pessoa pessoa : passageiros) {
+        for (Pessoa pessoa : pessoas) {
             if (pessoa.getCpf().equals(cpfConsulta)) {
-                int index = passageiros.indexOf(pessoa);
+                int index = pessoas.indexOf(pessoa);
                 do {
                     System.out.println("1-Nome \n2-Telefone \n3-Data de nascimento \n4-Sair: ");
                     option = sc.nextInt();
@@ -51,15 +48,15 @@ public class CrudPassageiro {
                             break;
                     }
                 } while (option != 0);
-                passageiros.set(index, pessoa);
+                pessoas.set(index, pessoa);
             }
         }
     }
 
-    public void consultarPassageiro() {
+    public void consultarPessoa() {
        System.out.println("Cpf para consultar: ");
         cpfConsulta = sc.nextLine();
-        for (Pessoa p : passageiros) {
+        for (Pessoa p : pessoas) {
             if (p.getCpf().equals(cpfConsulta)) {
                 System.out.println("Nome: " + p.getNome());
                 System.out.println("Cpf: " + p.getCpf());
@@ -69,10 +66,10 @@ public class CrudPassageiro {
         }
     }
 
-    public void excluirPassageiro() {
+    public void excluirPessoa() {
         System.out.println("Cpf para consultar: ");
         cpfConsulta = sc.nextLine();
-        for (Pessoa p : passageiros) {
+        for (Pessoa p : pessoas) {
             if (p.getCpf().equals(cpfConsulta)) {
                 System.out.println("Nome: " + p.getNome());
                 System.out.println("Telefone: " + p.getTelefone());
@@ -80,7 +77,7 @@ public class CrudPassageiro {
                 System.out.println("CPF: " + p.getCpf());
                 System.out.println("São realmente seus dados?(0)-Não (1)-Sim ");
                 option = sc.nextInt();
-                if (option == 1) passageiros.remove(passageiros.indexOf(p));
+                if (option == 1) pessoas.remove(pessoas.indexOf(p));
 
             }
         }

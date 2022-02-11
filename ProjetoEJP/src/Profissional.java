@@ -1,7 +1,7 @@
-public class Motorista extends Pessoa{
+public class Profissional extends Pessoa{
 	private String carro,cnh;
 	
-    public Motorista() {
+    public Profissional() {
 		super();
 	}
     
