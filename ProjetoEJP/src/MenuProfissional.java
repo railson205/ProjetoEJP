@@ -1,16 +1,16 @@
 import java.util.Scanner;
 
-public class MenuMotorista {
+public class MenuProfissional {
 
 
     int option;
     Scanner sc = new Scanner(System.in);
-    CrudMotorista crMotorista = new CrudMotorista();
+    CrudProfissional crProfissional = new CrudProfissional();
 
 
     public void menu() {
         do {
-            System.out.println("##--MENU Motorista--##");
+            System.out.println("##--MENU Profissional--##");
             System.out.println("| 1 - Cadastrar |");
             System.out.println("| 2 - Alterar |");
             System.out.println("| 3 - Consultar |");
@@ -20,16 +20,16 @@ public class MenuMotorista {
             option = sc.nextInt();
             switch (option) {
                 case 1:
-                    crMotorista.cadastrarMotorista();
+                    crProfissional.cadastrarProfissional();
                     break;
                 case 2:
-                    crMotorista.alterarMotorista();
+                    crProfissional.alterarProfissional();
                     break;
                 case 3:
-                    crMotorista.consultarMotorista();
+                    crProfissional.consultarProfissional();
                     break;
                 case 4:
-                    crMotorista.excluirMotorista();
+                    crProfissional.excluirProfissional();
                     break;
                 case 5:
                     break;

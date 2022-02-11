@@ -1,16 +1,16 @@
 import java.util.*;
 
-public class SolicitarViagem {
+public class SolicitarServico {
 
     String cpfConsulta, partida, chegada;
     Scanner sc = new Scanner(System.in);
     boolean cadastro = false;
 
-    public void solicitarViagem() {
+    public void solicitarServico() {
         do {
             System.out.println("\nDigite seu cpf para podermos pegar seu cadastro: ");
             cpfConsulta = sc.next();
-            for (Pessoa p : CrudPassageiro.passageiros) {
+            for (Pessoa p : CrudPessoa.pessoas) {
                 if (p.getCpf().equals(cpfConsulta)) {
                     /*System.out.println("Nome: " + p.getNome());
                     System.out.println("Cpf: " + p.getCpf());

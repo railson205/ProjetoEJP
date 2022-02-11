@@ -1,27 +1,31 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MenuViagem {
+public class MenuCliente {
+
 
     int option;
     Scanner sc = new Scanner(System.in);
-    SolicitarViagem solicitar = new SolicitarViagem();
-    HistoricoViagem historicoViagem = new HistoricoViagem();
+    PerfilPessoa perfilPessoa = new PerfilPessoa();
+    MenuServico menuServico= new MenuServico();;
 
-    public void menu() {
+    public void menu(){
         do {
-            System.out.println("##--Menu de viagem--##");
-            System.out.println("| 1 - Solicitar viagem |");
-            System.out.println("| 2 - Histórico de viagens |");
+            System.out.println("##--Menu do passageiro--##");
+            System.out.println("| 1 - Viagem |");
+            System.out.println("| 2 - Perfil |");
             System.out.println("| 3 - Sair |");
             System.out.println("|---------------------|");
             option = sc.nextInt();
             switch (option) {
                 case 1:
-                    solicitar.solicitarViagem();
+                if(CrudPessoa.pessoas.size()<1){
+                    System.out.println("Faça um cadastro antes");
+                    break;
+                }
+                    menuServico.menu();
                     break;
                 case 2:
-                    historicoViagem.mostraHistoricoViagem();
+                    perfilPessoa.menu();
                     break;
                 case 3:
                     break;
@@ -31,5 +35,4 @@ public class MenuViagem {
             }
         } while (option != 3);
     }
-
 }

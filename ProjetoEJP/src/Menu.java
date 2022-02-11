@@ -9,8 +9,8 @@ public class Menu {
     int option;
     Scanner sc = new Scanner(System.in);
 
-    MenuPassageiro menuPassageiro = new MenuPassageiro();
-    MenuMotorista menuMotorista = new MenuMotorista();
+    MenuCliente menuCliente = new MenuCliente();
+    MenuProfissional menuProfissional = new MenuProfissional();
 
     public void menuPrincipal() {
         do {
@@ -22,10 +22,10 @@ public class Menu {
             option = sc.nextInt();
             switch (option) {
                 case 1:
-                    menuPassageiro.menu();
+                    menuCliente.menu();
                     break;
                 case 2:
-                    menuMotorista.menu();
+                    menuProfissional.menu();
                     break;
                 case 3:
                     System.out.println("Tchau");
