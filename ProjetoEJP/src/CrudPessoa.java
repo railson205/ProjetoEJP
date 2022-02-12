@@ -82,4 +82,13 @@ public class CrudPessoa {
             }
         }
     }
+
+    public void auto() {
+        Pessoa pessoa = new Pessoa();
+        pessoa.setNome("Maria Eduarda");
+        pessoa.setCpf("987.654.321-10");
+        pessoa.setTelefone("(85) 91234-5678");
+        pessoa.setDataNascimento("8/3/2006");
+        pessoas.add(pessoa);
+    }
 }

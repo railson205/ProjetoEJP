@@ -1,22 +1,28 @@
 public class Profissional extends Pessoa{
-	private String carro,cnh;
+	private String profissao,descricao;
 	
     public Profissional() {
 		super();
 	}
+
+	public String getProfissao() {
+		return profissao;
+	}
+
+	public void setProfissao(String profissao) {
+		this.profissao = profissao;
+	}
+
+	public String getDescricao() {
+		return descricao;
+	}
+
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+
     
     
-    
-	public String getCarro() {
-		return carro;
-	}
-	public void setCarro(String carro) {
-		this.carro = carro;
-	}
-	public String getCnh() {
-		return cnh;
-	}
-	public void setCnh(String cnh) {
-		this.cnh = cnh;
-	}
+	
 }

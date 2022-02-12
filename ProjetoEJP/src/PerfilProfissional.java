@@ -1,15 +1,16 @@
-import java.util.*;
+import java.util.Scanner;
 
-public class PerfilPessoa {
+public class PerfilProfissional {
 
 
     int option;
     Scanner sc = new Scanner(System.in);
-    CrudPessoa crPessoa = new CrudPessoa();
+    CrudProfissional crProfissional = new CrudProfissional();
+
 
     public void menu() {
         do {
-            System.out.println("##--Perfil do cliente--##");
+            System.out.println("##--Perfil Profissional--##");
             System.out.println("| 1 - Cadastrar |");
             System.out.println("| 2 - Alterar |");
             System.out.println("| 3 - Consultar |");
@@ -19,16 +20,16 @@ public class PerfilPessoa {
             option = sc.nextInt();
             switch (option) {
                 case 1:
-                    crPessoa.cadastrarCliente();
+                    crProfissional.cadastrarProfissional();
                     break;
                 case 2:
-                    crPessoa.alterarPessoa();
+                    crProfissional.alterarProfissional();
                     break;
                 case 3:
-                    crPessoa.consultarPessoa();
+                    crProfissional.consultarProfissional();
                     break;
                 case 4:
-                    crPessoa.excluirPessoa();
+                    crProfissional.excluirProfissional();
                     break;
                 case 5:
                     break;
@@ -38,7 +39,8 @@ public class PerfilPessoa {
             }
         } while (option != 5);
     }
+
     public void auto(){
-        crPessoa.auto();
+        crProfissional.auto();
     }
 }

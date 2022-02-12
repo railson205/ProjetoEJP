@@ -6,12 +6,12 @@ public class MenuCliente {
     int option;
     Scanner sc = new Scanner(System.in);
     PerfilPessoa perfilPessoa = new PerfilPessoa();
-    MenuServico menuServico= new MenuServico();;
+    MenuServicoCliente menuServico= new MenuServicoCliente();;
 
     public void menu(){
         do {
-            System.out.println("##--Menu do passageiro--##");
-            System.out.println("| 1 - Viagem |");
+            System.out.println("##--Menu do cliente--##");
+            System.out.println("| 1 - Serviços |");
             System.out.println("| 2 - Perfil |");
             System.out.println("| 3 - Sair |");
             System.out.println("|---------------------|");
@@ -34,5 +34,14 @@ public class MenuCliente {
                     break;
             }
         } while (option != 3);
+    }
+    public void auto() {
+        perfilPessoa.auto();
+    }
+    public void autoServico(){
+        menuServico.auto();
+    }
+    public void autoHistorico(){
+        menuServico.autoHistorico();
     }
 }
