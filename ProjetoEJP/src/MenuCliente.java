@@ -35,4 +35,13 @@ public class MenuCliente {
             }
         } while (option != 3);
     }
+    public void auto() {
+        perfilPessoa.auto();
+    }
+    public void autoServico(){
+        menuServico.auto();
+    }
+    public void autoHistorico(){
+        menuServico.autoHistorico();
+    }
 }

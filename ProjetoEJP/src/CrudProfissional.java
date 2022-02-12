@@ -108,4 +108,15 @@ public class CrudProfissional {
             }
         }
     }
+
+    public void auto() {
+        Profissional c = new Profissional();
+        c.setNome("João Railson");
+        c.setCpf("123.456.789-01");
+        c.setTelefone("(85) 986148-6795");
+        c.setDataNascimento("7/5/2002");
+        c.setProfissao(profissoes.get(0));
+        c.setDescricao("trabalho a 10 anos nesse ramo");
+        profissionais.add(c);
+    }
 }

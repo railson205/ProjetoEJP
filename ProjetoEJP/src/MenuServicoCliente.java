@@ -30,5 +30,11 @@ public class MenuServicoCliente {
             }
         } while (option != 3);
     }
+public void auto() {
+    solicitar.auto();
+}
 
+public void autoHistorico() {
+    historicoServico.autoHistorico();
+}
 }

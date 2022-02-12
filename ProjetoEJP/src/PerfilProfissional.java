@@ -39,4 +39,8 @@ public class PerfilProfissional {
             }
         } while (option != 5);
     }
+
+    public void auto(){
+        crProfissional.auto();
+    }
 }

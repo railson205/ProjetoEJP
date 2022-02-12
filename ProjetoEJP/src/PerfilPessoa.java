@@ -38,4 +38,7 @@ public class PerfilPessoa {
             }
         } while (option != 5);
     }
+    public void auto(){
+        crPessoa.auto();
+    }
 }

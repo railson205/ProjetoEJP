@@ -21,11 +21,7 @@ public class Profissional extends Pessoa{
 		this.descricao = descricao;
 	}
 
-	@Override
-	public String toString() {
-		return "Nome: "+getNome()+", profissão: "+getProfissao()+", descrição: "+getDescricao();
-	}
-    
+
     
     
 	
