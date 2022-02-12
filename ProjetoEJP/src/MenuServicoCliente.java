@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class MenuServico {
+public class MenuServicoCliente {
 
     int option;
     Scanner sc = new Scanner(System.in);
@@ -9,9 +9,9 @@ public class MenuServico {
 
     public void menu() {
         do {
-            System.out.println("##--Menu de viagem--##");
-            System.out.println("| 1 - Solicitar viagem |");
-            System.out.println("| 2 - Histórico de viagens |");
+            System.out.println("##--Menu de serviço do cliente--##");
+            System.out.println("| 1 - Solicitar serviço |");
+            System.out.println("| 2 - Histórico de serviços |");
             System.out.println("| 3 - Sair |");
             System.out.println("|---------------------|");
             option = sc.nextInt();
