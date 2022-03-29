@@ -110,9 +110,7 @@ public class Historico {
                                     .update("informações", lista);
                         }
                     } else {
-                        histProfissional.add(new HistDaoProfissional(String.valueOf(lista.get(1)),
-                                String.valueOf(lista.get(6)), String.valueOf(lista.get(7)),
-                                String.valueOf(lista.get(5)), String.valueOf(lista.get(4)),String.valueOf(lista.get(12)),(boolean)lista.get(9)));
+                        System.out.println();
 
                     }
                 } else

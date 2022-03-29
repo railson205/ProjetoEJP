@@ -12,7 +12,6 @@ import com.example.Backend.Avaliacao;
 import com.example.Backend.ConectaFirebase;
 import com.example.Backend.CurrentUser;
 import com.example.Backend.HistDaoCliente;
-import com.example.Backend.StarRater;
 import com.google.api.core.ApiFuture;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.QuerySnapshot;

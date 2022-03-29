@@ -42,7 +42,7 @@ public class ListaHistProf extends AbstractTableModel {
             case 1:
                 return lista.get(linha).getDescProblema();
             case 2:
-                return lista.get(linha).getOrcamento();
+                return String.format("R$ %.2f", lista.get(linha).getOrcamento());
             case 3:
                 return lista.get(linha).getDataHora().substring(0, 10);
             case 4:
@@ -59,13 +59,13 @@ public class ListaHistProf extends AbstractTableModel {
         }
     }
 
-    public Object getValue(String campo, int index) {
+    /*public Object getValor(String campo, int index) {
         switch (campo) {
             case "idDoc":
                 return lista.get(index).getIdDoc();
             default:
                 return null;
         }
-    }
+    }*/
 
 }
