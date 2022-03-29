@@ -4,6 +4,10 @@
  */
 package com.example.Design;
 
+import java.util.ArrayList;
+
+import com.example.Backend.HistDaoProfissional;
+
 /**
  *
  * @author Rason
@@ -13,8 +17,18 @@ public class HistProfissionalFrame extends javax.swing.JFrame {
     /**
      * Creates new form HistProfissionalFrame
      */
+    ArrayList<HistDaoProfissional> histProf;
+    ListaHistProf tableModelProf;
+
+
     public HistProfissionalFrame() {
+        this.histProf = new ArrayList<HistDaoProfissional>();
+
         initComponents();
+    }
+
+    public void getHistDaoProf(){
+        
     }
 
     /**
