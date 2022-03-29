@@ -3,9 +3,8 @@ package com.example.Backend;
 public class HistDaoProfissional {
 
 
-	public HistDaoProfissional(String nomeCliente, String descProblema, Double orcamento, String dataHora,
+	public HistDaoProfissional(String nomeCliente, String descProblema, double orcamento, String dataHora,
 			String endereco, String idDoc, boolean terminado) {
-		super();
 		this.nomeCliente = nomeCliente;
 		this.descProblema = descProblema;
 		this.orcamento = orcamento;
@@ -19,7 +18,6 @@ public class HistDaoProfissional {
 	private Double orcamento;
 	private boolean terminado;
 
-	//id do documento e se o serviço foi terminado
 
 	public String getIdDoc() {
 		return idDoc;

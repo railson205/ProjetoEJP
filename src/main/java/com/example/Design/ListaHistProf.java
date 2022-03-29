@@ -59,13 +59,12 @@ public class ListaHistProf extends AbstractTableModel {
         }
     }
 
-    /*public Object getValor(String campo, int index) {
-        switch (campo) {
-            case "idDoc":
-                return lista.get(index).getIdDoc();
-            default:
-                return null;
-        }
-    }*/
+    public boolean isTerminado(int index) {
+        return lista.get(index).isTerminado();
+    }
+
+    public String getIdDoc(int index){
+        return lista.get(index).getIdDoc();
+    }
 
 }

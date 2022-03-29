@@ -8,6 +8,8 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.concurrent.ExecutionException;
 
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
@@ -22,6 +24,11 @@ import com.example.Backend.ConectaFirebase;
 import com.example.Backend.CurrentUser;
 import com.example.Backend.Notificacao;
 import com.example.Backend.ProfissionalManager;
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.DocumentReference;
+import com.google.cloud.firestore.DocumentSnapshot;
+import com.google.cloud.firestore.QuerySnapshot;
+
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -84,7 +91,7 @@ public class HomeFrames extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -107,21 +114,20 @@ public class HomeFrames extends javax.swing.JFrame {
         notButton = new javax.swing.JButton();
         histButton = new javax.swing.JButton();
         perfilButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jListaProfissionais.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][] {
-                        { null, null, null, null },
-                        { null, null, null, null },
-                        { null, null, null, null },
-                        { null, null, null, null }
-                },
-                new String[] {
-                        "Title 1", "Title 2", "Title 3", "Title 4"
-                }));
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
         jScrollPane1.setViewportView(jListaProfissionais);
 
         contrataButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -145,25 +151,25 @@ public class HomeFrames extends javax.swing.JFrame {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addComponent(buttonLogaDesloga)
-                                                .addGap(0, 98, Short.MAX_VALUE)))
-                                .addContainerGap()));
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(buttonLogaDesloga)
+                        .addGap(0, 98, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
         jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23,
-                                        Short.MAX_VALUE)
-                                .addComponent(buttonLogaDesloga)
-                                .addContainerGap()));
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addComponent(buttonLogaDesloga)
+                .addContainerGap())
+        );
 
         pesquisaButton.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         pesquisaButton.setText("Pesquisar");
@@ -247,119 +253,82 @@ public class HomeFrames extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("LoginCliente");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("LoginProfissional");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(contrataButton)
-                                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(notButton)
-                                                        .addComponent(histButton)
-                                                        .addComponent(perfilButton))
-                                                .addGap(108, 108, 108))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout
-                                                .createSequentialGroup()
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(jButton2)
-                                                        .addComponent(jButton1))
-                                                .addGap(99, 99, 99)))
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jSeparator1)
-                                        .addComponent(procuraText)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout
-                                                        .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(pesquisaButton)
-                                                        .addComponent(jLabel2)
-                                                        .addComponent(pedreiroBox)
-                                                        .addComponent(encanadorBox)
-                                                        .addComponent(eletricistaBox)
-                                                        .addComponent(diaristaBox)
-                                                        .addComponent(limpaTapeteBox)
-                                                        .addComponent(limpaPiscinaBox))
-                                                .addGap(0, 0, Short.MAX_VALUE)))
-                                .addContainerGap()));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(contrataButton)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(notButton)
+                    .addComponent(histButton)
+                    .addComponent(perfilButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jSeparator1)
+                    .addComponent(procuraText)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(pesquisaButton)
+                            .addComponent(jLabel2)
+                            .addComponent(pedreiroBox)
+                            .addComponent(encanadorBox)
+                            .addComponent(eletricistaBox)
+                            .addComponent(diaristaBox)
+                            .addComponent(limpaTapeteBox)
+                            .addComponent(limpaPiscinaBox))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 545,
-                                                Short.MAX_VALUE)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(contrataButton)
-                                                .addGap(26, 26, 26)
-                                                .addComponent(jButton1)
-                                                .addGap(38, 38, 38)
-                                                .addComponent(notButton)
-                                                .addGap(8, 8, 8)
-                                                .addComponent(jButton2)
-                                                .addGap(52, 52, 52)
-                                                .addComponent(histButton)
-                                                .addGap(61, 61, 61)
-                                                .addComponent(perfilButton)
-                                                .addGap(0, 0, Short.MAX_VALUE))))
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(procuraText, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                        javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(pesquisaButton)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(55, 55, 55)
-                                .addComponent(pedreiroBox)
-                                .addGap(18, 18, 18)
-                                .addComponent(encanadorBox)
-                                .addGap(18, 18, 18)
-                                .addComponent(eletricistaBox)
-                                .addGap(18, 18, 18)
-                                .addComponent(diaristaBox)
-                                .addGap(18, 18, 18)
-                                .addComponent(limpaTapeteBox)
-                                .addGap(18, 18, 18)
-                                .addComponent(limpaPiscinaBox)
-                                .addGap(0, 0, Short.MAX_VALUE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(procuraText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(pesquisaButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(55, 55, 55)
+                .addComponent(pedreiroBox)
+                .addGap(18, 18, 18)
+                .addComponent(encanadorBox)
+                .addGap(18, 18, 18)
+                .addComponent(eletricistaBox)
+                .addGap(18, 18, 18)
+                .addComponent(diaristaBox)
+                .addGap(18, 18, 18)
+                .addComponent(limpaTapeteBox)
+                .addGap(18, 18, 18)
+                .addComponent(limpaPiscinaBox)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane1)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(contrataButton)
+                        .addGap(86, 86, 86)
+                        .addComponent(notButton)
+                        .addGap(82, 82, 82)
+                        .addComponent(histButton)
+                        .addGap(61, 61, 61)
+                        .addComponent(perfilButton)
+                        .addGap(0, 62, Short.MAX_VALUE))))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -371,9 +340,28 @@ public class HomeFrames extends javax.swing.JFrame {
                 dispose();
                 option = JOptionPane.showInputDialog(null, "O que você deseja fazer?", null, JOptionPane.PLAIN_MESSAGE,
                         null, opC, 1);
-                dispose();
                 switch (option.toString()) {
                     case "Mudar nome":
+                        String nome, aviso = "Digite qual vai ser o novo nome";
+                        do {
+                            nome = JOptionPane.showInputDialog(null, aviso);
+                            aviso = "Coloque um nome válido";
+                        } while (!nome.trim().contains(" ") || nome.trim().length() < 3);
+
+                        ApiFuture<QuerySnapshot> query = ConectaFirebase.bd.collection("clientes").get();
+                        try {
+                            for (DocumentSnapshot doc : query.get().getDocuments()) {
+                                if (doc.getId().equals(CurrentUser.uid)) {
+                                    Map<String, Object> aux = doc.getData();
+                                    aux.replace("nome", nome);
+                                    DocumentReference docRef = ConectaFirebase.bd.collection("clientes")
+                                            .document(doc.getId());
+                                    docRef.update(aux);
+                                }
+                            }
+                        } catch (Exception e) {
+                            // TODO: handle exception
+                        }
 
                         break;
                     case "Mudar senha":
@@ -390,16 +378,69 @@ public class HomeFrames extends javax.swing.JFrame {
                 dispose();
                 switch (option.toString()) {
                     case "Mudar nome":
+                        String nome, aviso = "Digite qual vai ser o novo nome";
+                        do {
+                            nome = JOptionPane.showInputDialog(null, aviso);
+                            aviso = "Coloque um nome válido";
+                        } while (!nome.trim().contains(" ") || nome.trim().length() < 3);
+
+                        ApiFuture<QuerySnapshot> queryNome = ConectaFirebase.bd.collection("profissionais").get();
+                        try {
+                            for (DocumentSnapshot doc : queryNome.get().getDocuments()) {
+                                if (doc.getId().equals(CurrentUser.uid)) {
+                                    Map<String, Object> aux = doc.getData();
+                                    aux.replace("nome", nome);
+                                    DocumentReference docRef = ConectaFirebase.bd.collection("profissionais")
+                                            .document(doc.getId());
+                                    docRef.update(aux);
+                                }
+                            }
+                        } catch (Exception e) {
+                            // TODO: handle exception
+                        }
                         break;
                     case "Mudar senha":
                         new MudarSenhaFrame().setVisible(true);
                         break;
                     case "Mostrar avaliação":
+                        ApiFuture<QuerySnapshot> queryRating = ConectaFirebase.bd.collection("profissionais").get();
+                        try {
+                            Double qtdAval=0.0, rating=1.0;
+                            boolean temAvaliacao = false;
+                            for (DocumentSnapshot doc : queryRating.get().getDocuments()) {
+                                if (doc.getId().equals(CurrentUser.uid)) {
+                                    if (doc.get("avaliação") != null) {
+                                        qtdAval = doc.getDouble("qtd avaliações");
+                                        rating = doc.getDouble("avaliação");
+                                        temAvaliacao = true;
+                                    }
+
+                                }
+                            }
+                            JOptionPane.showMessageDialog(null,temAvaliacao ?String.format("Você tem %.0f avaliações e uma média de avaliação de %.2f", qtdAval,rating/qtdAval):"Você ainda não tem avaliação");
+                        } catch (InterruptedException | ExecutionException e) {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        }
                         break;
                     case "Mostrar faturamento":
+                    try {
+                        Double faturamento=0.0;
+                        ApiFuture<QuerySnapshot> queryFaturamento = ConectaFirebase.bd.collection("histórico").get();
+                        for(DocumentSnapshot doc:queryFaturamento.get().getDocuments()){
+                            if(((ArrayList)doc.get("informações")).get(2).equals(CurrentUser.uid)){
+                                faturamento +=Double.valueOf(String.valueOf(((ArrayList)doc.get("informações")).get(7)));
+                            }
+                        }
+
+                        JOptionPane.showMessageDialog(null,String.format("Seu faturamento até agora é de R$ %.2f", faturamento));
+                    } catch (Exception e) {
+                        //TODO: handle exception
+                    }
                         break;
                 }
             }
+            new HomeFrames().setVisible(true);
         }
     }// GEN-LAST:event_perfilButtonActionPerformed
 
@@ -441,11 +482,11 @@ public class HomeFrames extends javax.swing.JFrame {
                 dispose();
                 new HistClienteFrame().setVisible(true);
             } else {
-                JOptionPane.showMessageDialog(null, "Botão com problemas");
-                /*
-                 * dispose();
-                 * new HistProfissionalFrame().setVisible(true);
-                 */
+                //JOptionPane.showMessageDialog(null, "Botão com problemas");
+                
+                 dispose();
+                 new HistProfissionalFrame().setVisible(true);
+                 
             }
         }
     }// GEN-LAST:event_histButtonActionPerformed
@@ -601,8 +642,6 @@ public class HomeFrames extends javax.swing.JFrame {
     private javax.swing.JCheckBox eletricistaBox;
     private javax.swing.JCheckBox encanadorBox;
     private javax.swing.JButton histButton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
